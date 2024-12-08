@@ -2,11 +2,13 @@
 <manifest>
 
   <remote  name="aosp"
-           fetch=".."
+           fetch="https://android.googlesource.com"
            review="https://android-review.googlesource.com/" />
   <default revision="refs/tags/android-15.0.0_r6"
            remote="aosp"
-           sync-j="4" />
+           sync-j="4"
+           sync-c="true"
+           sync-f="true" />
 
   <superproject name="platform/superproject" remote="aosp" revision="android-15.0.0_r6"/>
   <contactinfo bugurl="go/repo-bug" />
@@ -1410,5 +1412,16 @@
     <copyfile src="lk_inc.mk" dest="lk_inc.mk" />
   </project>
   <!-- END open-source projects -->
+
+  <!--ThePixelProject-->
+
+  <!-- Remove unused repos -->
+  <include name="snippets/remove.xml" />
+
+  <!-- Track ThePixelProject repos -->
+  <include name="snippets/tpp.xml" />
+
+  <!-- Track LineageOS repos -->
+  <include name="snippets/lineage.xml" />
 
 </manifest>
